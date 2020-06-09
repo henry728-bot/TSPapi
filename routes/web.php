@@ -14,3 +14,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/api/productos', ['uses' => 'ProductsController@index']);
+$router->get('/api/productos/{id}', ['uses' => 'ProductsController@id_producto']);
