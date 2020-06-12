@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class ExampleMiddleware
+class FormatJson
 {
     /**
      * Handle an incoming request.
@@ -15,6 +15,10 @@ class ExampleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+        if ($request->isJson()) { //
+            return $next($request);
+        }
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 }
