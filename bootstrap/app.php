@@ -73,12 +73,13 @@ $app->configure('app');
 */
 
 // $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
+//    App\Http\Middleware\FormatJson::class
 // ]);
 
-// $app->routeMiddleware([
+$app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+    'json' => App\Http\Middleware\FormatJson::class,
+ ]);
 
 /*
 |--------------------------------------------------------------------------
